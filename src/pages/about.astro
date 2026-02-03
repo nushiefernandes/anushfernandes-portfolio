@@ -1,0 +1,114 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Anush Fernandes" description="Builder at the intersection of AI, marketing, and food.">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Builder at the intersection of AI, marketing, and food."
+			>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I'm Anush—a builder at the intersection of AI, marketing, and food. By day, I experiment
+						with AI systems that make creative work better: multi-model councils that debate ideas,
+						skills that synthesize recipes from dozens of sources, and apps that turn food photos
+						into searchable memories.
+					</p>
+					<p>
+						I believe the best AI tools feel like collaborators, not servants. They should challenge
+						your thinking, not just execute commands. That's why I build systems where multiple AI
+						models work together—catching each other's blind spots and producing better results than
+						any single model alone.
+					</p>
+					<p>
+						When I'm not building, I'm in the kitchen—testing recipes, documenting experiments, and
+						occasionally producing something worth sharing. The baking section is coming soon.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">What I'm Exploring</h2>
+				<div class="content">
+					<p>
+						Multi-model AI systems • Claude Code skills • Food tracking with AI vision •
+						Recipe synthesis • Building tools that learn from you
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Location</h2>
+				<div class="content">
+					<p>Based in Goa, India</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
