@@ -3,11 +3,11 @@ import Icon from './Icon.astro';
 import type { iconPaths } from './IconPaths';
 import ThemeToggle from './ThemeToggle.astro';
 
-/** Main menu items */
-const textLinks: { label: string; href: string }[] = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
+/** Main menu items - Build | Market | Bake facets */
+const textLinks: { label: string; href: string; subtitle: string }[] = [
+	{ label: 'Build', href: '/build/', subtitle: 'AI + software' },
+	{ label: 'Market', href: '/market/', subtitle: 'Product + growth' },
+	{ label: 'Bake', href: '/bake/', subtitle: 'Sourdough & more' },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -43,9 +43,9 @@ const isCurrentPage = (href: string) => {
 	<noscript>
 		<ul class="nav-items">
 			{
-				textLinks.map(({ label, href }) => (
+				textLinks.map(({ label, href, subtitle }) => (
 					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
+						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href} title={subtitle}>
 							{label}
 						</a>
 					</li>
@@ -70,9 +70,9 @@ const isCurrentPage = (href: string) => {
 	<div id="menu-content" hidden>
 		<ul class="nav-items">
 			{
-				textLinks.map(({ label, href }) => (
+				textLinks.map(({ label, href, subtitle }) => (
 					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
+						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href} title={subtitle}>
 							{label}
 						</a>
 					</li>

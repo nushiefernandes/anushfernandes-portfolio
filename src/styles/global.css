@@ -25,6 +25,17 @@
 
 	--link-color: var(--accent-regular);
 
+	/* Section accent colors (Build | Market | Bake) */
+	--accent-build: #3b82f6;    /* blue - tech/AI */
+	--accent-market: #10b981;   /* green - professional */
+	--accent-bake: #f59e0b;     /* orange - warm/cozy */
+	--accent-current: var(--accent-build);
+
+	/* Material variables for section theming */
+	--radius-current: 0.5rem;
+	--shadow-color-current: rgba(0, 0, 0, 0.1);
+	--bg-tint: transparent;
+
 	/* Gradients */
 	--gradient-stop-1: var(--accent-light);
 	--gradient-stop-2: var(--accent-regular);
@@ -100,6 +111,11 @@
 	--accent-text-over: var(--gray-0);
 
 	--link-color: var(--accent-dark);
+
+	/* Section accent colors (Build | Market | Bake) - dark mode */
+	--accent-build: #60a5fa;    /* lighter blue for dark mode */
+	--accent-market: #34d399;   /* lighter green for dark mode */
+	--accent-bake: #fbbf24;     /* lighter orange for dark mode */
 
 	--gradient-stop-1: #4c11c6;
 	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
@@ -259,4 +275,28 @@ h5 {
 	.lg\:gap-48 {
 		gap: 12rem;
 	}
+}
+
+/* ====================================================== */
+/* Section-specific theming (Build | Market | Bake)       */
+/* ====================================================== */
+
+[data-section="build"] {
+	--accent-current: var(--accent-build);
+	--radius-current: 0.25rem;  /* crisp, engineering feel */
+}
+
+[data-section="market"] {
+	--accent-current: var(--accent-market);
+	--radius-current: 0.75rem;  /* softer, presentation feel */
+}
+
+[data-section="bake"] {
+	--accent-current: var(--accent-bake);
+	--radius-current: 1rem;     /* warm, cozy feel */
+	--bg-tint: rgba(245, 158, 11, 0.02);
+}
+
+:root.theme-dark [data-section="bake"] {
+	--bg-tint: rgba(251, 191, 36, 0.03);
 }

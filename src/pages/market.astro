@@ -1,0 +1,61 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Market | Anush Fernandes"
+	description="Product and growth work by Anush Fernandes"
+	section="market"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Market"
+				tagline="Product strategy, growth experiments, and professional work. Coming soon."
+				align="start"
+			/>
+			<div class="coming-soon">
+				<div class="coming-soon-card">
+					<h3>Coming Soon</h3>
+					<p>Case studies and insights from product and marketing work will appear here.</p>
+					<p class="subtext">Employment history, consulting projects, and growth experiments.</p>
+				</div>
+			</div>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.coming-soon {
+		display: flex;
+		justify-content: center;
+		padding: 2rem 0;
+	}
+
+	.coming-soon-card {
+		text-align: center;
+		padding: 3rem 2rem;
+		border: 2px dashed var(--gray-800);
+		border-radius: var(--radius-current, 0.75rem);
+		max-width: 500px;
+		background: var(--bg-tint, transparent);
+	}
+
+	.coming-soon-card h3 {
+		color: var(--accent-market);
+		margin-bottom: 1rem;
+	}
+
+	.coming-soon-card p {
+		color: var(--gray-300);
+		margin-bottom: 0.5rem;
+	}
+
+	.coming-soon-card .subtext {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+</style>

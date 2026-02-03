@@ -1,0 +1,61 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Bake | Anush Fernandes"
+	description="Sourdough and baking projects by Anush Fernandes"
+	section="bake"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Bake"
+				tagline="Sourdough, bread, and baking experiments. The analog side of life."
+				align="start"
+			/>
+			<div class="coming-soon">
+				<div class="coming-soon-card">
+					<h3>Coming Soon</h3>
+					<p>Recipes, process photos, and baking experiments will appear here.</p>
+					<p class="subtext">Sourdough starters, bread bakes, and what I learned along the way.</p>
+				</div>
+			</div>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.coming-soon {
+		display: flex;
+		justify-content: center;
+		padding: 2rem 0;
+	}
+
+	.coming-soon-card {
+		text-align: center;
+		padding: 3rem 2rem;
+		border: 2px dashed var(--gray-800);
+		border-radius: var(--radius-current, 1rem);
+		max-width: 500px;
+		background: var(--bg-tint, transparent);
+	}
+
+	.coming-soon-card h3 {
+		color: var(--accent-bake);
+		margin-bottom: 1rem;
+	}
+
+	.coming-soon-card p {
+		color: var(--gray-300);
+		margin-bottom: 0.5rem;
+	}
+
+	.coming-soon-card .subtext {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+</style>

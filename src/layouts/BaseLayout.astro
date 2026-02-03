@@ -10,12 +10,13 @@ import Nav from '../components/Nav.astro';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+	section?: 'build' | 'market' | 'bake' | undefined;
 }
 
-const { title, description } = Astro.props;
+const { title, description, section } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-section={section}>
 	<head>
 		<MainHead title={title} description={description} />
 	</head>
