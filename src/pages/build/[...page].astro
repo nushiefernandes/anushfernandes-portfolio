@@ -1,7 +1,6 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
-import BuyMeCoffee from '@/components/react/buymeacoffe'
 import PaginationComponent from '@/components/ui/pagination'
 import Layout from '@/layouts/Layout.astro'
 import { getAllProjects } from '@/lib/data-utils'
@@ -24,41 +23,38 @@ const currentUrl = Astro.url;
 ---
 
 <Layout canonicalUrl={currentUrl}>
-  <PageHead slot="head" title="Projects" />
+  <PageHead slot="head" title="Build - AI Projects" />
   <Breadcrumbs
     items={[
-      { label: 'Projects', href: '/projects', icon: 'lucide:folder' },
+      { label: 'Build', href: '/build', icon: 'lucide:cpu' },
     ]}
   />
 
-  <section class="max-screen mt-12 px-4 md:px-6">
+  <section class="max-screen mt-12 px-4 md:px-6" data-section="build">
     <div class="flex flex-row items-center justify-between mb-8">
       <div>
-          <div class="flex w-fit items-center gap-2 text-primary">
-            <Icon name="lucide:star" class="h-4 w-4 text-yellow-500 animate-pulse" />
-            <p class="shimmer word-spacing font-mono text-sm uppercase leading-none text-primary">My Work</p>
+          <div class="flex w-fit items-center gap-2 text-blue-500">
+            <Icon name="lucide:cpu" class="h-4 w-4 animate-pulse" />
+            <p class="font-mono text-sm uppercase leading-none">AI + Software</p>
           </div>
           <h2
             id="skills-title"
             class="font-custom text-foreground text-4xl font-bold mt-2"
           >
-            Projects
+            Build
           </h2>
           <p class="text-muted-foreground text-md max-w-2xl mt-3">
-            Here are some of the projects I have worked on. I am always looking for new challenges and opportunities to learn and grow as a developer. If you have a project in mind, feel free to reach out!
+            AI experiments, developer tools, and software projects. Building at the intersection of language models and useful applications.
           </p>
       </div>
-      <div>
-        <BuyMeCoffee />
-      </div>  
     </div>
-  
+
     <div class="mt-12 grid grid-cols-1 py-sm sm:grid-cols-2 gap-x-8 mb-16 gap-y-8">
       {projectData.map((project, _) => (
         <div
           class="group h-full w-full transition-all duration-300 hover:translate-y-[-4px] even:sm:mt-14"
         >
-          <a class="flex flex-col h-full w-full rounded-2xl overflow-hidden bg-card hover:shadow-lg transition-all duration-300 border border-card-foreground/10" href={`/projects/${project.id}`} aria-label="Project link">
+          <a class="flex flex-col h-full w-full rounded-2xl overflow-hidden bg-card hover:shadow-lg transition-all duration-300 border border-card-foreground/10" href={`/build/${project.id}`} aria-label="Project link">
             <div
               class="aspect-[16/10] w-full overflow-hidden"
             >
@@ -84,10 +80,10 @@ const currentUrl = Astro.url;
               <div class="flex flex-wrap justify-between items-center mt-auto pt-3 border-t border-border/40">
                 <div class="flex flex-wrap gap-2">
                   {project.data.tags?.slice(0, 2).map((tag) => (
-                    <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">{tag}</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-500 font-medium">{tag}</span>
                   ))}
                   {project.data.tags?.length > 2 && (
-                    <span class="text-xs px-2 py-1 rounded-full bg-secondary/80 text-primary font-medium">+{project.data.tags.length - 2}</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-secondary/80 text-blue-500 font-medium">+{project.data.tags.length - 2}</span>
                   )}
                 </div>
                 <p class="text-xs font-medium text-muted-foreground flex items-center">
@@ -105,7 +101,7 @@ const currentUrl = Astro.url;
       <PaginationComponent
         currentPage={page.currentPage}
         totalPages={page.lastPage}
-        baseUrl="/projects/"
+        baseUrl="/build/"
         client:load
       />
     </div>

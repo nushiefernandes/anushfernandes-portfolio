@@ -6,15 +6,17 @@ import Skills from '@/components/react/skills'
 import { buttonVariants } from '@/components/ui/button'
 import Logo from '@/components/ui/logo'
 import Layout from '@/layouts/Layout.astro'
-import { getRecentPosts } from '@/lib/data-utils'
+import { getRecentPosts, getAllProjects } from '@/lib/data-utils'
 import { SITE } from '@/consts'
+import { Icon } from 'astro-icon/components'
 
 const blog = await getRecentPosts(3)
+const projects = await getAllProjects()
 const currentUrl = Astro.url;
 ---
 
 <Layout canonicalUrl={currentUrl}>
-  <PageHead slot="head" title="Junior Full Stack Developer" />
+  <PageHead slot="head" title="Builder, Marketer, Baker" />
   <section class="flex flex-col gap-y-12 px-4 py-8 sm:px-8 lg:px-16">
     <div
       class="flex flex-col items-center text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left"
@@ -38,22 +40,19 @@ const currentUrl = Astro.url;
           </span>
           <span class="flex items-center gap-1">
             <span class="text-foreground text-sm font-medium"> {SITE.location}</span>
+            <!-- Indian Flag -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 51.18 38.4"
-              class="h-6 w-6 transition-transform duration-500 hover:rotate-12"
+              viewBox="0 0 900 600"
+              class="h-5 w-7 transition-transform duration-500 hover:rotate-12 rounded-sm"
               aria-hidden="true"
               role="img"
-              focusable="false"
-              aria-labelledby="title"
             >
-              <path
-                d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z"
-                fill="#002b7f"></path>
-              <path fill="#fcd116" d="M37.45 0v38.4h-19.7V0h19.7z"></path>
-              <path
-                d="M37.45 38.4V0h14.72c1.67 0 3.03 1.36 3.03 3.03v32.33c0 1.67-1.37 3.03-3.03 3.03H37.45v.01z"
-                fill="#ce1126"></path>
+              <rect fill="#f93" width="900" height="200"/>
+              <rect fill="#fff" y="200" width="900" height="200"/>
+              <rect fill="#128807" y="400" width="900" height="200"/>
+              <circle cx="450" cy="300" r="60" fill="#000080"/>
+              <circle cx="450" cy="300" r="50" fill="#fff"/>
             </svg>
           </span>
         </div>
@@ -62,6 +61,81 @@ const currentUrl = Astro.url;
         </p>
       </div>
     </div>
+
+    <!-- Three Facets Section -->
+    <section class="relative" aria-labelledby="facets-title">
+      <h2
+        id="facets-title"
+        class="font-custom text-foreground text-2xl font-bold"
+      >
+        Three Facets
+      </h2>
+      <p class="text-muted-foreground text-sm mb-6">
+        What I do, organized into three categories.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Build Card -->
+        <a href="/build" class="group relative overflow-hidden rounded-2xl border border-blue-500/20 bg-card p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-blue-500/10">
+              <Icon name="lucide:cpu" class="h-6 w-6 text-blue-500" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-foreground">Build</h3>
+              <p class="text-xs text-blue-500 font-medium">AI + Software</p>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            AI experiments, developer tools, and software projects.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-muted-foreground">{projects.length} projects</span>
+            <span class="text-blue-500 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Market Card -->
+        <a href="/market" class="group relative overflow-hidden rounded-2xl border border-green-500/20 bg-card p-6 transition-all duration-300 hover:border-green-500/50 hover:shadow-lg hover:shadow-green-500/10">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-green-500/10">
+              <Icon name="lucide:trending-up" class="h-6 w-6 text-green-500" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-foreground">Market</h3>
+              <p class="text-xs text-green-500 font-medium">Product + Growth</p>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Product strategy, growth experiments, and professional experience.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-muted-foreground">Coming soon</span>
+            <span class="text-green-500 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Bake Card -->
+        <a href="/bake" class="group relative overflow-hidden rounded-2xl border border-orange-500/20 bg-card p-6 transition-all duration-300 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-orange-500/10">
+              <Icon name="lucide:cookie" class="h-6 w-6 text-orange-500" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-foreground">Bake</h3>
+              <p class="text-xs text-orange-500 font-medium">Sourdough & More</p>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Sourdough adventures, baking experiments, and culinary creations.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-muted-foreground">Coming soon</span>
+            <span class="text-orange-500 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <section class="relative" aria-labelledby="skills-title">
       <h2
